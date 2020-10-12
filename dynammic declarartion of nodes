@@ -1,0 +1,36 @@
+when a node is declaraed statically:
+
+e.g:
+
+node* input()
+{
+int data;
+cin>>data;
+node *head=NULL;
+while(data!=-1)             // SO HERE node n is declared statically it simply means that the scope of the node will exist until one taravrsal of the loop
+{                          // so after the first traversal of the loop the scope of the first node gets deleted  which becomes a problem and so the declaration of node 
+node n(data);               // dynamiccally is required
+
+if(head==NULL){
+head=&n;
+}
+}
+
+
+dynammic decalaration of nodE:
+
+e.g.:
+node* input()
+{
+int data;
+cin>>data;
+node *head=NULL;
+while(data!=-1)            
+{                          
+node n=new node(data);               
+
+if(head==NULL){
+head=n;
+}
+}
+
