@@ -1,0 +1,82 @@
+
+#include<iostream>
+using namespace std;
+class node{
+	public:
+	int data;
+	node *next;
+	
+		node(int data){
+			this->data=data;
+			next=NULL;
+		}
+};
+#include<iostream>
+using namespace std;
+#include"node.cpp"
+node* input(){
+	int data,x;
+	cout<<"enter elements:"<<endl;
+	cin>>data;
+    
+	node *head=NULL;
+	node *tail=NULL;
+	while(data!=-1){
+	node *n=new node(data);
+	if(head==NULL){
+		head=n;tail=n;
+	}
+	else
+	{
+	 tail->next=n;
+	 tail=tail->next;
+	 // or
+	 // tail=n;
+	
+	}
+	
+	cin>>data;
+	
+}
+return head;
+}
+void print(node *head){
+	node *t=head;
+	while(t!=NULL){
+	
+	cout<<t->data<<" ";
+	t=t->next;
+}
+}
+node* insert(node *head,int i,int data){
+	node *n=new node(data);
+    node *t=head;
+    if(i==0){
+    	n->next=head;
+    	head=n;
+    	return head;
+	}
+    int j=0;
+    while(t!=NULL&&j<i-1){
+    	t=t->next;
+		j++;
+	}
+	n->next=t->next;
+	t->next=n;
+	return head;
+}
+int main()
+{
+	 node *a=input();
+	cout<<"head is:"<<a->data<<endl;
+	
+	print(a);
+	//cout<<n1.data<<" "<<n2.data;
+	cout<<endl;
+	int i,data;
+	cin>>i>>data;
+	node *b=insert(a,i,data);
+	print(b);
+	
+	
+}
